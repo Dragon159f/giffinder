@@ -4,7 +4,10 @@
 
 $(document).ready(function(){
   
-  // WRITE A CLICK HANDLER HERE
+  
+  $("button").click(function(){
+    $("#srch-term").val();  
+  });
   /*
     1. click handler function
     2. get the typed input from the search input box
@@ -15,7 +18,7 @@ $(document).ready(function(){
       // write a function that will return a url for the giphy API with
       // the searchTerm provided in the parameters
     var firstPart = "api.giphy.com/v1/stickers/search?q=";
-    var term = "dog";
+    var term =  $("#srch-term").val();
     var secondPart = "&api_key=dc6zaTOxFJmzC";
     var locaTerm = firstPart + term + secondPart;
     console.log(locaTerm);
@@ -25,7 +28,7 @@ $(document).ready(function(){
       // write a function that will append an <img> to the div with class="gallery"
       // using the URL provided in the parameters
       var url = "<img src="+giphyURLWithSearchTerm+">";
-      $("body").append(url);
+      $("body").append(response.url);
   }
 
   function callGiphyAPIWithSearchTerm(searchTerm) {
@@ -37,14 +40,13 @@ $(document).ready(function(){
       method: "GET",
       success: function(response) {
            // Log the whole response to the console
-      console.log();
+           console.log(response);
            // Log the first image of the data to the console
-           
+           console.log(response.image);
            // Log the "type" property of the first image object to the console
-           
+           console.log(response.type);
            // Log the "title" property of the first image object to the console
+           console.log(response.title);
       },
     }
 });
-
-callGiphyAPIWithSearchTerm("dog");
