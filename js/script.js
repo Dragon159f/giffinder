@@ -43,8 +43,8 @@ $(document).ready(function(){
       url: giphyURL,
       method: "GET",
       success: function(response) {
-           var rng = Math.floor(Math.random()*response.data.length-1);
-           var url = response.data[rng].images.original.url;
+           //var rng = Math.floor(Math.random()*response.data.length-1);
+           var url = response.data[0].images.original.url;
            appendImageToBody(url);
            // Log the whole response to the console
            console.log(response);
